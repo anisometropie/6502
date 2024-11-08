@@ -37,6 +37,15 @@ reset:
   lda #0
   sta PORTA
 
+  lda #%00000001 ; Clear display
+  sta PORTB
+  lda #0         ; Clear RS/RW/E bits
+  sta PORTA
+  lda #E         ; Set E bit to send instruction
+  sta PORTA
+  lda #0         ; Clear RS/RW/E bits
+  sta PORTA
+  
   ; display on; cursor on; blinking cursor off;
   lda #%00001110
   sta PORTB
